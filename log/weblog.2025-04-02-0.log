@@ -1,0 +1,25 @@
+[TraceId: ] 2025-04-02 17:34:35.695 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - Starting WeblogWebApplication using Java 1.8.0_442 on Mac-mini.local with PID 20795 (/Users/zenghao/my/myTest/java/weblog_new/weblog-springboot/weblog-web/target/classes started by zenghao in /Users/zenghao/my/myTest/java/weblog_new/weblog-springboot)
+[TraceId: ] 2025-04-02 17:34:35.697 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - The following profiles are active: prod
+[TraceId: ] 2025-04-02 17:34:35.982 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[TraceId: ] 2025-04-02 17:34:35.984 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[TraceId: ] 2025-04-02 17:34:35.984 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[TraceId: ] 2025-04-02 17:34:36.001 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[TraceId: ] 2025-04-02 17:34:36.001 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 282 ms
+[TraceId: ] 2025-04-02 17:34:36.070 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[TraceId: ] 2025-04-02 17:34:36.103 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[TraceId: ] 2025-04-02 17:34:36.106 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - Started WeblogWebApplication in 0.601 seconds (JVM running for 0.876)
+[TraceId: ] 2025-04-02 17:34:51.819 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - Starting WeblogWebApplication using Java 1.8.0_442 on Mac-mini.local with PID 20808 (/Users/zenghao/my/myTest/java/weblog_new/weblog-springboot/weblog-web/target/classes started by zenghao in /Users/zenghao/my/myTest/java/weblog_new/weblog-springboot)
+[TraceId: ] 2025-04-02 17:34:51.820 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - The following profiles are active: prod
+[TraceId: ] 2025-04-02 17:34:52.132 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[TraceId: ] 2025-04-02 17:34:52.134 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[TraceId: ] 2025-04-02 17:34:52.134 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[TraceId: ] 2025-04-02 17:34:52.149 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[TraceId: ] 2025-04-02 17:34:52.149 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 300 ms
+[TraceId: ] 2025-04-02 17:34:52.221 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[TraceId: ] 2025-04-02 17:34:52.255 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[TraceId: ] 2025-04-02 17:34:52.258 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplication - Started WeblogWebApplication in 0.697 seconds (JVM running for 0.915)
+[TraceId: ] 2025-04-02 17:34:57.296 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[TraceId: ] 2025-04-02 17:34:57.297 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[TraceId: ] 2025-04-02 17:34:57.298 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[TraceId: ccbfa482-ea13-487d-9d3f-c2455492512f] 2025-04-02 17:34:57.380 [http-nio-8080-exec-1] INFO  c.q.weblog.common.aspect.ApiOperationLogAspect - ====== 请求开始: [测试接口], 入参: {"username":"admin","sex":1}, 请求类: TestController, 请求方法: test =================================== 
+[TraceId: ccbfa482-ea13-487d-9d3f-c2455492512f] 2025-04-02 17:34:57.384 [http-nio-8080-exec-1] INFO  c.q.weblog.common.aspect.ApiOperationLogAspect - ====== 请求结束: [测试接口], 耗时: 8ms, 出参: {"username":"admin","sex":1} =================================== 
