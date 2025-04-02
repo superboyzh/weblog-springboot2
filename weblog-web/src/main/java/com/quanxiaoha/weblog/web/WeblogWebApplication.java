@@ -1,4 +1,4 @@
-package com.quanxiaoha.weblogweb;
+package com.quanxiaoha.weblog.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

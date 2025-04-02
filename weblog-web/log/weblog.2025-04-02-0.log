@@ -1,0 +1,8 @@
+2025-04-02 16:15:14.821 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - Starting WeblogWebApplicationTests using Java 1.8.0_442 on Mac-mini.local with PID 18650 (started by zenghao in /Users/zenghao/my/myTest/java/weblog_new/weblog-springboot/weblog-web)
+2025-04-02 16:15:14.821 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - The following profiles are active: prod
+2025-04-02 16:15:15.226 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-04-02 16:15:15.281 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - Started WeblogWebApplicationTests in 0.622 seconds (JVM running for 1.106)
+2025-04-02 16:15:15.368 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - 这是一行 Info 级别日志
+2025-04-02 16:15:15.368 [main] WARN  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - 这是一行 Warn 级别日志
+2025-04-02 16:15:15.368 [main] ERROR com.quanxiaoha.weblog.web.WeblogWebApplicationTests - 这是一行 Error 级别日志
+2025-04-02 16:15:15.368 [main] INFO  com.quanxiaoha.weblog.web.WeblogWebApplicationTests - 这是一行带有占位符日志，作者：犬小哈
