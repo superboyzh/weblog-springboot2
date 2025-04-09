@@ -39,7 +39,7 @@ class WeblogWebApplicationTests {
     @Test
     void insertTest() {
         UserDO userDO = UserDO.builder()
-                .username("zenghao")
+                .username("zenghao111")
                 .password("123456")
                 .createTime(new Date())
                 .updateTime(new Date())
