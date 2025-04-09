@@ -2,6 +2,7 @@ package com.quanxiaoha.weblog.web.controller;
 
 import com.quanxiaoha.weblog.common.enums.ResponseCodeEnum;
 import com.quanxiaoha.weblog.common.exception.BizException;
+import com.quanxiaoha.weblog.common.utils.JsonUtil;
 import com.quanxiaoha.weblog.common.utils.Response;
 import com.quanxiaoha.weblog.web.model.User;
 import com.quanxiaoha.weblog.common.aspect.ApiOperationLog;
@@ -16,6 +17,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.stream.Collectors;
 
 @RestController
@@ -26,7 +31,13 @@ public class TestController {
     @ApiOperationLog(description = "测试接口")
     @ApiOperation(value = "测试接口1", notes = "测试接口2")
     public Response test(@RequestBody @Validated User user) {
-        return Response.success();
+        // 打印入参
+        log.info(JsonUtil.toJsonString(user));
+        // 设置三种日期字段值
+        user.setCreateTime(LocalDateTime.now());
+        user.setUpdateDate(LocalDate.now());
+        user.setTime(LocalTime.now());
+        return Response.success(user);
         //1. 处理参数校验异常
         // 手动抛异常，入参是前面定义好的异常码枚举，返参统一交给全局异常处理器搞定
         // throw new BizException(ResponseCodeEnum.PRODUCT_NOT_FOUND);
