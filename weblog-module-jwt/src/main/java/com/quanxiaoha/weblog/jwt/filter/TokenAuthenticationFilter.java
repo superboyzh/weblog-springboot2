@@ -44,7 +44,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // 从请求头中获取 key 为 Authorization 的值
-        String header = request.getHeader(tokenPrefix);
+        String header = request.getHeader(tokenHeaderKey);
 
         // 判断 value 值是否以 Bearer 开头
         if (StringUtils.startsWith(header, tokenPrefix)) {
