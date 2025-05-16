@@ -1,4 +1,6 @@
 package com.quanxiaoha.weblog.admin.service;
+import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
+import com.quanxiaoha.weblog.common.utils.PageResponse;
 import com.quanxiaoha.weblog.common.utils.Response;
 import com.quanxiaoha.weblog.admin.model.vo.category.AddCategoryReqVO;
 
@@ -9,4 +11,12 @@ public interface AdminCategoryService {
      * @return
      */
     Response addCategory(AddCategoryReqVO addCategoryReqVO);
+
+
+    /**
+     * 分类分页数据查询
+     * @param findCategoryPageListReqVO
+     * @return
+     */
+    PageResponse findCategoryList(FindCategoryPageListReqVO findCategoryPageListReqVO);
 }
