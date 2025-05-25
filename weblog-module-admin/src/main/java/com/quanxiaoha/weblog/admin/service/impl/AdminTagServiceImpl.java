@@ -9,6 +9,8 @@ import com.quanxiaoha.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListRspVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.AddTagReqVO;
+import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListReqVO;
+import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListRspVO;
 import com.quanxiaoha.weblog.admin.service.AdminCategoryService;
 import com.quanxiaoha.weblog.admin.service.AdminTagService;
 import com.quanxiaoha.weblog.common.domain.dos.CategoryDO;
@@ -27,6 +29,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -56,5 +59,27 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
             log.warn("该标签已存在", e);
         }
         return Response.success();
+    }
+
+    @Override
+    public Response findTagPageList(FindTagPageListReqVO findTagPageListReqVO) {
+        String name = findTagPageListReqVO.getName();
+        Long current = findTagPageListReqVO.getCurrent();
+        Long size = findTagPageListReqVO.getSize();
+        LocalDate startDate = findTagPageListReqVO.getStartDate();
+        LocalDate endDate = findTagPageListReqVO.getEndDate();
+        Page<TagDO> page =  tagMapper.selectPageList(current, size, name, startDate, endDate);
+        List<TagDO> records = page.getRecords();
+
+        // do转vo
+        List<FindTagPageListRspVO> vos = null;
+        if (!CollectionUtils.isEmpty(records)) {
+            vos = records.stream().map(tagDO -> FindTagPageListRspVO.builder()
+                    .id(tagDO.getId())
+                    .name(tagDO.getName())
+                    .createTime(tagDO.getCreateTime())
+                    .build()).collect(Collectors.toList());
+        }
+        return PageResponse.success(page,vos);
     }
 }
