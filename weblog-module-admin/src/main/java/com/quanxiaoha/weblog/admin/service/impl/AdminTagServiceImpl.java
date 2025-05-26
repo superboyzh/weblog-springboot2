@@ -9,6 +9,7 @@ import com.quanxiaoha.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListRspVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.AddTagReqVO;
+import com.quanxiaoha.weblog.admin.model.vo.tag.DeleteTagReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListRspVO;
 import com.quanxiaoha.weblog.admin.service.AdminCategoryService;
@@ -81,5 +82,16 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
                     .build()).collect(Collectors.toList());
         }
         return PageResponse.success(page,vos);
+    }
+
+    @Override
+    public Response deleteTags(DeleteTagReqVO deleteTagReqVO) {
+        Long id = deleteTagReqVO.getId();
+        TagDO tagDO = tagMapper.selectById(id);
+        if (tagDO == null) {
+            return Response.fail("删除失败");
+        }
+        tagMapper.deleteById(id);
+        return Response.success();
     }
 }
