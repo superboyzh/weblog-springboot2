@@ -8,10 +8,7 @@ import com.quanxiaoha.weblog.admin.model.vo.category.AddCategoryReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListRspVO;
-import com.quanxiaoha.weblog.admin.model.vo.tag.AddTagReqVO;
-import com.quanxiaoha.weblog.admin.model.vo.tag.DeleteTagReqVO;
-import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListReqVO;
-import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListRspVO;
+import com.quanxiaoha.weblog.admin.model.vo.tag.*;
 import com.quanxiaoha.weblog.admin.service.AdminCategoryService;
 import com.quanxiaoha.weblog.admin.service.AdminTagService;
 import com.quanxiaoha.weblog.common.domain.dos.CategoryDO;
@@ -42,6 +39,11 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
     @Autowired
     private TagMapper tagMapper;
 
+    /**
+     * 新增标签
+     * @param addTagReqVO
+     * @return
+     */
     @Override
     public Response addTags(AddTagReqVO addTagReqVO) {
 
@@ -62,6 +64,11 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
         return Response.success();
     }
 
+    /**
+     * 分页数据
+     * @param findTagPageListReqVO
+     * @return
+     */
     @Override
     public Response findTagPageList(FindTagPageListReqVO findTagPageListReqVO) {
         String name = findTagPageListReqVO.getName();
@@ -93,5 +100,44 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
         }
         tagMapper.deleteById(id);
         return Response.success();
+    }
+
+    /**
+     * 模糊查询
+     * @param searchTagReqVO
+     * @return
+     */
+    @Override
+    public Response searchTags(SearchTagReqVO searchTagReqVO) {
+        String key = searchTagReqVO.getKey();
+        List<TagDO> tagDOS =  tagMapper.selectByKey(key);
+        List<SelectRspVO> vos = null;
+        if (!CollectionUtils.isEmpty(tagDOS)) {
+            vos = tagDOS.stream()
+                    .map(tagDO -> SelectRspVO.builder()
+                            .label(tagDO.getName())
+                            .value(tagDO.getId())
+                            .build())
+                    .collect(Collectors.toList());
+        }
+        return Response.success(vos);
+    }
+
+    /**
+     * 下拉列表
+     * @return
+     */
+    @Override
+    public Response findTagSelectList() {
+        List<TagDO> tagDOS = tagMapper.selectList(null);
+        List<SelectRspVO> selectRspVOS = null;
+        if (!CollectionUtils.isEmpty(tagDOS)) {
+            selectRspVOS = tagDOS.stream().map(tagDO -> SelectRspVO.builder()
+                    .label(tagDO.getName())
+                    .value(tagDO.getId())
+                    .build())
+                    .collect(Collectors.toList());
+        }
+        return Response.success(selectRspVOS);
     }
 }

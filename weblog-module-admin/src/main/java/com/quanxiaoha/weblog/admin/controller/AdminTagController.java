@@ -6,6 +6,7 @@ import com.quanxiaoha.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.AddTagReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.DeleteTagReqVO;
 import com.quanxiaoha.weblog.admin.model.vo.tag.FindTagPageListReqVO;
+import com.quanxiaoha.weblog.admin.model.vo.tag.SearchTagReqVO;
 import com.quanxiaoha.weblog.admin.service.AdminCategoryService;
 import com.quanxiaoha.weblog.admin.service.AdminTagService;
 import com.quanxiaoha.weblog.common.aspect.ApiOperationLog;
@@ -47,11 +48,18 @@ public class AdminTagController {
     public Response deleteTag(@RequestBody @Validated DeleteTagReqVO deleteTagReqVO) {
         return tagService.deleteTags(deleteTagReqVO);
     }
-//
-//    @PostMapping("/category/select/list")
-//    @ApiOperation(value = "分类 Select 下拉列表数据获取")
-//    @ApiOperationLog(description = "分类 Select 下拉列表数据获取")
-//    public Response findCategorySelectList() {
-//        return categoryService.findCategorySelectList();
-//    }
+
+    @PostMapping("/tag/search")
+    @ApiOperation(value = "标签模糊查询")
+    @ApiOperationLog(description = "标签模糊查询")
+    public Response searchTag(@RequestBody @Validated SearchTagReqVO searchTagReqVO) {
+        return tagService.searchTags(searchTagReqVO);
+    }
+
+    @PostMapping("/tag/select/list")
+    @ApiOperation(value = "分类 Select 下拉列表数据获取")
+    @ApiOperationLog(description = "分类 Select 下拉列表数据获取")
+    public Response findTagSelectList() {
+        return tagService.findTagSelectList();
+    }
 }
